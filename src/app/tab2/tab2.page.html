@@ -1,17 +1,60 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+    <ion-toolbar color="tertiary">
+        <ion-title class="ion-text-center">
+            18 GATOS FELINOS
+        </ion-title>
     </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+</ion-header>
+<ion-content>
+    <div id="fondo2">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" size-sm="4"></ion-col>
+                <ion-col size="12" size-sm="4">
+                    <ion-card>
+                        <ion-card-content>
+                            <ion-slides mode="ios" #mySlider>
+                                <ion-slide *ngFor="let animal of items">
+                                    <div [ngStyle]="{'background-image':'url('+animal.url+')', 'height':'400px', 'width':'400px','background-size':'cover','background-position':'center'}">
+                                    </div>
+                                </ion-slide>
+                            </ion-slides>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="3">
+                                <ion-button color="tertiary" shape="round" expand="full" (click)="swipeLast(0)">
+                                    <ion-icon name="play-skip-back-sharp"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="3">
+                                <ion-button color="tertiary" shape="round" expand="full" (click)="swipeBack()">
+                                    <ion-icon name="play-back-sharp"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="3">
+                                <ion-button color="tertiary" shape="round" expand="full" (click)="swipeNext()">
+                                    <ion-icon name="play-forward-sharp"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                            <ion-col size="3">
+                                <ion-button color="tertiary" shape="round" expand="full" (click)="swipeLast(-1)">
+                                    <ion-icon name="play-skip-forward-sharp"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-button color="tertiary" shape="round" expand="full" (click)="masnuevas()">
+                                    NUEVAS FOTOS
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-col>
+                <ion-col size="12" size-sm="4"></ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 </ion-content>
